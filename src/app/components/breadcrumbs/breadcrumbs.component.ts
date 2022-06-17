@@ -16,7 +16,6 @@ export class BreadcrumbsComponent implements OnInit, AfterViewInit {
 
   @Output() clickFirst: EventEmitter<any> = new EventEmitter();
   @Output() clickSecond: EventEmitter<any> = new EventEmitter();
-  // @Output() openSideNav: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -28,6 +27,7 @@ export class BreadcrumbsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
+  // Check mobile view or desktop view to leave space for the menu icon
   ngAfterViewInit(): void {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches) {
@@ -38,7 +38,6 @@ export class BreadcrumbsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  
 
   goToDashboard(){
     this.router.navigateByUrl('home/dashboard')

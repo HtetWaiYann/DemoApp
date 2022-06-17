@@ -24,6 +24,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
     // Unsubscribe all subscriptions
   }
 
+  // add dummy data for companies
   getCompaines() {
     this.isLoading = true;
     setTimeout(() => {
@@ -64,6 +65,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
     }, 2000);
   }
 
+  // Create new company
   newCompany() {
     let dialogRef = this.dialog.open(AdminCompanyComponent, {
       width: '600px',
@@ -87,6 +89,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
       });
   }
 
+  // Edit company details
   editCompany(company: ICompany) {
     let dialogRef = this.dialog.open(AdminCompanyComponent, {
       width: '600px',

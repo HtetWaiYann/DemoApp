@@ -73,6 +73,8 @@ export class AdminCompanyComponent implements OnInit, OnDestroy {
     this.dialogRef.close({ status: false, data: {} });
   }
 
+
+  // Save company form
   saveCompany() {
     if (this.loading) {
       return;

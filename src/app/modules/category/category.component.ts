@@ -13,7 +13,6 @@ import { Category } from 'src/app/models/Category';
 })
 export class CategoryComponent implements OnInit {
   constructor(
-    private router: Router,
     private dialog: MatDialog
   ) {
   }
@@ -26,6 +25,8 @@ export class CategoryComponent implements OnInit {
     this.getCategory();
   }
 
+
+  // Add dummy data for categories
   getCategory() {
     this.gettingCategories = true;
     setTimeout(() => {
@@ -52,6 +53,8 @@ export class CategoryComponent implements OnInit {
     }, 2000);
   }
 
+
+  // Add new category
   newCategory() {
     let dialogRef = this.dialog.open(NewCategoryComponent, {
       width: '600px',
@@ -73,6 +76,8 @@ export class CategoryComponent implements OnInit {
       });
   }
 
+
+  // Category Edit Form
   editCategory(category: Category) {
     let dialogRef = this.dialog.open(NewCategoryComponent, {
       width: '600px',
@@ -95,6 +100,7 @@ export class CategoryComponent implements OnInit {
       });
   }
 
+  // Confirmation for deleting the category
   deleteCategory(category: Category, index: number) {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',

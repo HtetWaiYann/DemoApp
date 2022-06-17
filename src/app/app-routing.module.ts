@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: SidenavComponent,
-    // canActivate: [AdminAuthGuard], // Check Authentication
+    // canActivate: [AuthGuard], // Check Authentication
     children: [
       {path: 'companies', component: CompaniesComponent},
       {path: 'categories', component: CategoryComponent},
