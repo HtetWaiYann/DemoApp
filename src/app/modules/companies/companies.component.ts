@@ -37,7 +37,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
           status: '001',
           expirationdate: '17/06/2022',
           expirationdateforedit: '20220617',
-          orgimage: 'https://picsum.photos/200/300',
+          orgimage: './../../../assets/images/google.png',
         },
         {
           orgid: '2',
@@ -57,7 +57,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
           status: '002',
           expirationdate: '03/06/2022',
           expirationdateforedit: '20220603',
-          orgimage: 'https://picsum.photos/200/300',
+          orgimage: './../../../assets/images/IBM.jpeg',
         },
       ];
       this.compaines = dummyData;

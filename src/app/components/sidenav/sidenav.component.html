@@ -17,7 +17,7 @@
         </div>
       </ng-container>
     </div>
-    <div (click)="sidenavToggle()" class="d-flex flex-column justify-content-end flex-grow-1" *ngIf="isDesktopView">
+    <div (click)="sidenavToggle()" class="d-flex flex-column justify-content-end flex-grow-1 cursor-pointer" *ngIf="isDesktopView">
       <button class="btn menu-button"
         [ngClass]="{'toggle-btn-open menu-button-large' : isDesktopView && isOpen, 'toggle-btn-close' : isDesktopView && !isOpen}">
         <mat-icon>keyboard_arrow_right</mat-icon>

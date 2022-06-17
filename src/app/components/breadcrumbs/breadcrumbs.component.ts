@@ -40,7 +40,7 @@ export class BreadcrumbsComponent implements OnInit, AfterViewInit {
 
 
   goToDashboard(){
-    this.router.navigateByUrl('home/dashboard')
+    this.router.navigateByUrl('admin/companies')
   }
 
 }
