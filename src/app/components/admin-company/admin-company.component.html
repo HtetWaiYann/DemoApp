@@ -1,0 +1,51 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div *ngIf = "!isEditing">
+    <h5><strong>New Company</strong></h5>
+    <small>Fill in the required information of the company</small>
+  </div>
+  <div *ngIf = "isEditing">
+    <h5><strong>{{formControl['name'].value}}</strong></h5>
+    <small>Fill in the required information of the company</small>
+  </div>
+  <div>
+    <button mat-icon-button class="d-flex align-items-center justify-content-center" (click)="dismiss()"
+      [disabled]="loading">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+<br>
+
+<form [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Enter company name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput placeholder="Enter description" rows="5" formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="001">Active</mat-option>
+      <mat-option value="002">Inactive</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Expiration Date</mat-label>
+    <input matInput [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()" readonly
+      formControlName="expirationdate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker disabled="false"></mat-datepicker>
+  </mat-form-field>
+  <div mat-dialog-action class="d-flex align-items-center justify-content-end">
+    <div class="me-2">
+      <button class="btn my-btn-cancel" type="button" (click)="dismiss()" [disabled]="loading">Cancel</button>
+    </div>
+    <div>
+      <app-loading-button [text]="isEditing ? 'Save' : 'Create'" [loading]="loading"></app-loading-button>
+    </div>
+  </div>
+</form>

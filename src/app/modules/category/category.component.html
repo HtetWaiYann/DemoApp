@@ -1,0 +1,29 @@
+<app-breadcrumbs first="Category"></app-breadcrumbs>
+<div class="content">
+  <div class="mb-4">
+    <h4><strong>Categories</strong></h4>
+  </div>
+  <ng-container *ngIf="!gettingCategories; else loadingTemplate">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let category of categories; let i = index;">
+        <div class="card card-body cat-card">
+          {{category.categoryname}}
+          <div class = "delete-container">
+            <mat-icon class = "edit me-3" matTooltip="Edit Category" (click) = "editCategory(category)">edit</mat-icon>
+            <mat-icon class = "delete" matTooltip="Delete Category" (click) = "deleteCategory(category, i)">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+        <div class="card card-body d-flex align-items-center justify-content-center cat-card-add" matTooltip="New Category" (click) = "newCategory()">
+          <mat-icon>add</mat-icon>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loadingTemplate>
+    <div class = "no-data">
+      <mat-spinner [strokeWidth]="3" [diameter]="30"></mat-spinner>
+    </div>
+  </ng-template>
+</div>

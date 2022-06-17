@@ -1,0 +1,67 @@
+<app-breadcrumbs first="Companies"></app-breadcrumbs>
+<div class="content">
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h4><strong>Companies</strong></h4>
+    </div>
+    <div>
+      <button class="btn my-btn" (click)="newCompany()">
+        <mat-icon>add</mat-icon>
+        New Company
+      </button>
+    </div>
+  </div>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <td scope="col"></td>
+          <td scope="col">NAME</td>
+          <td scope="col">DESCRIPTION</td>
+          <td scope="col">STATUS</td>
+          <td scope="col">EXPIRATION DATE</td>
+        </tr>
+      </thead>
+      <tbody *ngIf = "!isLoading">
+        <ng-container *ngIf="compaines.length > 0, else emptyTemplate">
+          <tr *ngFor="let company of compaines" (click)="editCompany(company)">
+            <td class="img-cell">
+              <div [ngClass]="{ 'img-profile': company.orgimage == ''}">
+                <img class="profileimage" *ngIf="company.orgimage != ''"
+                  [src]="company.orgimage" alt="">
+                <span *ngIf="company.orgimage == ''"> {{ company.name.charAt(0)}}</span>
+              </div>
+              <!-- <img [src]="company.orgimage? company.orgimage :'https://picsum.photos/200/300'"> -->
+            </td>
+            <td class = "td-name">{{company.name}}</td>
+            <td class = "td-description">{{company.description}}</td>
+            <td>
+              <span class="badge bg-main" *ngIf="company.status == '001'">Active</span>
+              <span class="badge bg-danger" *ngIf="company.status == '002'">Inactive</span>
+            </td>
+            <td class = "td-exp">{{company.expirationdate}}</td>
+          </tr>
+        </ng-container>
+        <ng-template #emptyTemplate>
+          <tr>
+            <td colspan="5" class = "no-data-td">
+              <span class = "no-data">
+                No Data Found
+              </span>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+      <tbody *ngIf = "isLoading">
+        <tr>
+          <td colspan="5" class = "no-data-td">
+            <span class = "no-data">
+              <mat-spinner [strokeWidth]="3" [diameter]="30"></mat-spinner>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

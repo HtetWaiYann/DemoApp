@@ -1,0 +1,9 @@
+<div class = "breadcrumbs" [ngClass]="{'left-menu-space': isMobileView}">
+  <span class = "active-breadcrumb" (click) = "goToDashboard()">Home</span>
+  <span>/</span>
+  <span [ngClass]="{'active-breadcrumb': second}" (click) = "clickFirst.emit()">{{first}}</span>
+  <span *ngIf = "second">/</span>
+  <span [ngClass]="{'active-breadcrumb': third}" *ngIf = "second">{{second}}</span>
+  <span *ngIf = "third">/</span>
+  <span *ngIf = "third">{{third}}</span>
+</div>

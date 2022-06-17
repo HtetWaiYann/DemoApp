@@ -1,0 +1,39 @@
+.cat-card {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  border-left: 5px solid var(--main-color);
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  .delete-container {
+    display: none;
+  }
+  &:hover {
+    .delete-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 16px;
+      .delete{
+        cursor: pointer;
+        color: red;
+      }
+      .edit{
+        color: var(--main-color);
+      }
+    }
+  }
+}
+
+.cat-card-add {
+  height: 60px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border-style: dashed;
+  &:hover{
+    border: 1px dashed black;
+  }
+}

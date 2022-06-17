@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div>
+    <h5><strong>{{title}}</strong></h5>
+  </div>
+  <div>
+    <button mat-icon-button class="d-flex align-items-center justify-content-center" (click)="dismiss()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+<br>
+<div mat-dialog-body>
+  {{message}}
+</div>
+<br>
+<div mat-dialog-action class="d-flex align-items-center justify-content-end">
+  <div class="me-2">
+    <button class="btn my-btn-cancel" type="button" (click)="dismiss()">{{cancelButtonText}}</button>
+  </div>
+  <div>
+    <button class="btn my-btn" (click)="confirm()">
+      {{confirmButtonText}}
+    </button>
+  </div>
+</div>

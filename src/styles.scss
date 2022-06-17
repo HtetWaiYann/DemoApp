@@ -1,1 +1,265 @@
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+$SampleProject-primary: mat.define-palette(mat.$indigo-palette);
+$SampleProject-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$SampleProject-warn: mat.define-palette(mat.$red-palette);
+$SampleProject-theme: mat.define-light-theme((
+  color: (
+    primary: $SampleProject-primary,
+    accent: $SampleProject-accent,
+    warn: $SampleProject-warn,
+  )
+));
+
+@include mat.all-component-themes($SampleProject-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --main-color: #6ea0ff;
+  --text-color: white;
+  --background-color: #e5ebf8;
+  --accent-color : #508bf8;
+  --border-radius: 10px;
+  --height: 45px;
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+html, body { 
+  height: 100%; 
+  background-color: var(--background-color) !important;
+  font-size: 15px;
+}
+body { margin: 0; font-family: 'Google Sans',Roboto, sans-serif; }
+
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--main-color);
+}
+
+.btn:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  // border: none !important;
+}
+
+.form-check-input:checked{
+  background-color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+}
+
+.form-control{
+  height: var(--height) !important;
+  border-radius: var(--border-radius) !important;
+}
+
+.btn{
+  border-radius: var(--border-radius) !important;
+}
+
+
+mat-icon{
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  line-height: 20px !important;
+}
+
+// .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+//   color: var(--main-color);
+// }
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick, .mat-focused .mat-form-field-label {
+  color: var(--main-color);
+}
+
+.required{
+  color: #dc3545 !important;
+}
+
+
+
+.my-btn{
+  background-color: var(--main-color) !important;
+  color: var(--text-color) !important;
+  min-width: 85px;
+  height: var(--height);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  &:hover{
+    background-color: var(--accent-color) !important;
+  }
+}
+
+.my-btn-cancel{
+  background-color: transparent !important;
+  min-width: 85px;
+  height: var(--height);
+  &:hover{
+    background-color: var(--background-color) !important;
+  }
+}
+
+.main-btn{
+  background-color: var(--main-color) !important;
+  color: var(--text-color) !important;
+  display: flex !important;
+  align-items: center;
+  mat-icon{
+    margin-right: 5px;
+  }
+  &:hover{
+    background-color: var(--accent-color) !important;
+  }
+}
+
+.mat-drawer-inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.active{
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+}
+
+.content{
+  position: relative;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 16px;
+  border-top: 5px solid var(--main-color);
+  margin-bottom: 25px;
+}
+
+.bg-main{
+  background-color: var(--main-color) !important;
+}
+
+.mat-dialog-container{
+  border-radius: var(--border-radius) !important;
+}
+
+.spinner {
+  margin: 5px 0 0 0;
+  // width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 10px;
+  height: 10px;
+  background-color: var(--text-color);
+  margin: 5px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+
+.table>:not(:first-child) {
+  border-top: none !important;
+}
+
+.table{
+  thead{
+    position: sticky;
+    background-color: white;
+    top: 0;
+  }
+  thead td{
+    font-weight: 500;
+    color: var(--main-color);
+    font-size: 14px;
+    height: 50px;
+    vertical-align: middle;
+  }
+  thead td:last-child{
+    max-width: 30px !important;
+  }
+  tbody td{
+    cursor: pointer;
+    font-size: 14px;
+    height: 50px;
+    vertical-align: middle;
+    img{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .no-data-td{
+    cursor: unset;
+    &:hover{
+      background-color: white;
+    }
+  }
+  tbody tr:hover{
+    background-color: var(--background-color);
+  }
+  tbody tr:last-child td{
+    border-bottom: none !important;
+  }
+  .img-cell{
+    width: 100px;
+    text-align: center;
+  }
+}
+
+.no-data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {   
+  stroke: var(--main-color);
+}
+
+.loading-btn-spinner{
+  circle {
+    stroke: var(--text-color) !important;
+  }
+}
+
+.helpicon{
+  font-size: 16px !important;
+  cursor: pointer;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.breadcrumbs {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-color: white;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  span{
+    margin: 0px 8px;
+  }
+  margin-bottom: 16px;
+}
+
+.active-breadcrumb{
+  color: var(--main-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.left-menu-space{
+  padding-left: 40px;
+}

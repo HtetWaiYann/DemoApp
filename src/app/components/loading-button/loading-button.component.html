@@ -1,0 +1,7 @@
+<button [disabled]="loading" class="btn my-btn" type="submit">
+  <span style="padding: 0;margin: 0;" *ngIf="loading"
+      class="d-flex align-items-center justify-content-center p-2">
+      <mat-spinner class = "loading-btn-spinner" [strokeWidth]="2" [diameter]="20"></mat-spinner>
+  </span>
+  <span *ngIf="!loading"> {{text}}</span>
+</button>
